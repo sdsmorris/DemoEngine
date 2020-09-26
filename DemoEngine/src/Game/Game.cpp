@@ -104,7 +104,7 @@ void Game::update()
     glEnable(GL_CULL_FACE);
 
     //AABB to AABB collision
-    CollisionInfo info = CollisionHelper::isAABBInsideAABB(entities[3]->bboxMin, entities[3]->bboxMax, entities[4]->bboxMin, entities[4]->bboxMax);
+    CollisionInfo info = CollisionHelper::isAABBInsideAABB(entities[3]->bboxMin, entities[3]->bboxMax, entities[4]->bboxMin, entities[4]->bboxMax, entities[3], entities[4]);
     if (info.collide)
     {
         std::cout << "AABB collision\n";
@@ -130,6 +130,7 @@ void Game::update()
 
     CollisionRenderer::debugShader.setFloat("transparency", 0.3);
     CollisionRenderer::drawBoundingSphere(glm::vec3(player.xPos, player.yPos, player.zPos), player.radius);
+    CollisionRenderer::drawBoundingSphere(glm::vec3(entities[1]->xPos, entities[1]->yPos, entities[1]->zPos), entities[1]->radius);
     //CollisionRenderer::drawBoundingSphere(glm::vec3(entities[8]->xPos, entities[8]->yPos, entities[8]->zPos), entities[8]->radius);
     glEnable(GL_CULL_FACE);
 #endif
@@ -147,11 +148,11 @@ void Game::update()
     }*/
 
     //Sphere to sphere player coin collision detection
-    if (!((Coin*)entities[1])->collected && CollisionHelper::isSphereInsideSphere(glm::vec3(player.xPos, player.yPos, player.zPos), player.radius, glm::vec3(entities[1]->xPos, entities[1]->yPos, entities[1]->zPos), entities[1]->radius))
+    if (!((Coin*)entities[1])->collected && CollisionHelper::isSphereInsideSphere(glm::vec3(player.xPos, player.yPos, player.zPos), player.radius, glm::vec3(entities[1]->xPos, entities[1]->yPos, entities[1]->zPos), entities[1]->radius, &player, entities[1]))
     {
-        ((Coin*)entities[1])->collected = true;
+        /*((Coin*)entities[1])->collected = true;
         player.coins++;
-        std::cout << player.coins << "\n";
+        std::cout << player.coins << "\n";*/
     }
 
     //Proof that debug colliders are accurate to the pixel
@@ -169,7 +170,7 @@ void Game::update()
     }
 
     //Sphere to AABB collision detection
-    if (CollisionHelper::isSphereInsideAABB(glm::vec3(player.xPos, 0, player.zPos), player.radius, entities[4]->bboxMin, entities[4]->bboxMax))
+    if (CollisionHelper::isSphereInsideAABB(glm::vec3(player.xPos, 0, player.zPos), player.radius, entities[4]->bboxMin, entities[4]->bboxMax, &player, entities[4]))
     {
         std::cout << "SPHERE AABB COLLISION" << "\n";
     }

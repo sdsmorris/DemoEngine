@@ -1,2 +1,49 @@
 ﻿  CollisionHelper.cpp
+  Game.cpp
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Camera\Camera.h(9,45): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(29,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(30,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(40,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(41,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(42,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(43,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(44,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(45,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(46,27): warning C4305: '*=': truncation from 'double' to 'T'
+          with
+          [
+              T=float
+          ]
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(47,23): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(57,22): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(65,30): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(66,23): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(71,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(72,29): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(73,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(77,30): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(78,30): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(79,22): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\sammo\source\repos\DemoEngine\DemoEngine\src\Game\Game.cpp(131,64): warning C4305: 'argument': truncation from 'double' to 'const float'
+  Generating Code...
   DemoEngine.vcxproj -> C:\Users\sammo\source\repos\DemoEngine\x64\Debug\DemoEngine.exe

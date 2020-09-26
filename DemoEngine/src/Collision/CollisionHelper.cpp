@@ -7,7 +7,7 @@
 	return CollisionInfo((aMin.x <= bMax.x && aMax.x >= bMin.x) && (aMin.y <= bMax.y && aMax.y >= bMin.y) && (aMin.z <= bMax.z && aMax.z >= bMin.z));
 }*/
 
-CollisionInfo CollisionHelper::isAABBInsideAABB(glm::vec3 aMin, glm::vec3 aMax, glm::vec3 bMin, glm::vec3 bMax)
+CollisionInfo CollisionHelper::isAABBInsideAABB(glm::vec3 aMin, glm::vec3 aMax, glm::vec3 bMin, glm::vec3 bMax, Entity* e1, Entity* e2)
 {
 	return CollisionInfo((aMin.x <= bMax.x && aMax.x >= bMin.x) && (aMin.y <= bMax.y && aMax.y >= bMin.y) && (aMin.z <= bMax.z && aMax.z >= bMin.z));
 }
@@ -17,9 +17,15 @@ bool CollisionHelper::isPointInsideAABB(glm::vec3 point, glm::vec3 bboxMin, glm:
 	return (point.x >= bboxMin.x && point.x <= bboxMax.x) && (point.y >= bboxMin.y && point.y <= bboxMax.y) && (point.z >= bboxMin.z && point.z <= bboxMax.z);
 }
 
-bool CollisionHelper::isSphereInsideSphere(glm::vec3 sphere, float sphereRadius, glm::vec3 otherSphere, float otherSphereRadius)
+bool CollisionHelper::isSphereInsideSphere(glm::vec3 sphere, float sphereRadius, glm::vec3 otherSphere, float otherSphereRadius, Entity* e1, Entity* e2)
 {
 	float dist = glm::sqrt((sphere.x - otherSphere.x) * (sphere.x - otherSphere.x) + (sphere.y - otherSphere.y) * (sphere.y - otherSphere.y) + (sphere.z - otherSphere.z) * (sphere.z - otherSphere.z));
+	if (dist <= (sphereRadius + otherSphereRadius))
+	{
+		//Push code
+		/*e1->move(-e1->xVelocity / 2, 0, -e1->zVelocity / 2);
+		e2->move(e1->xVelocity / 2, 0, e1->zVelocity / 2);*/
+	}
 	return dist <= (sphereRadius + otherSphereRadius);
 }
 
@@ -29,12 +35,17 @@ bool CollisionHelper::isPointInsideSphere(glm::vec3 point, glm::vec3 sphere, flo
 	return distance < radius;
 }
 
-bool CollisionHelper::isSphereInsideAABB(glm::vec3 sphere, float radius, glm::vec3 bboxMin, glm::vec3 bboxMax)
+bool CollisionHelper::isSphereInsideAABB(glm::vec3 sphere, float radius, glm::vec3 bboxMin, glm::vec3 bboxMax, Entity* e1, Entity* e2)
 {
 	float x = glm::max(bboxMin.x, glm::min(sphere.x, bboxMax.x));
 	float y = glm::max(bboxMin.y, glm::min(sphere.y, bboxMax.y));
 	float z = glm::max(bboxMin.z, glm::min(sphere.z, bboxMax.z));
 	float distance = glm::sqrt((x - sphere.x) * (x - sphere.x) + (y - sphere.y) * (y - sphere.y) + (z - sphere.z) * (z - sphere.z));
+	if (distance < radius)
+	{
+		glm::vec3 direction = sphere - glm::vec3(x, y, z);
+		e1->move(direction.x * distance, 0, 0);
+	}
 	return distance < radius;
 }
 
